@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ClassLibrary1\Puzzle.Zdania.Model.csproj" />
+    <ProjectReference Include="..\Puzzle.Zadania.IServices\Puzzle.Zdania.IServices.csproj" />
+  </ItemGroup>
+
+</Project>
