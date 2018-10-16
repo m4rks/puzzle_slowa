@@ -7,8 +7,8 @@
     <ProjectGuid>{62026E79-2DB8-4FA2-B567-60C3BA38451D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Puzzle.Zdania.ViewModel</RootNamespace>
-    <AssemblyName>Puzzle.Zdania.ViewModel</AssemblyName>
+    <RootNamespace>Puzzle.Zdania.ViewModels</RootNamespace>
+    <AssemblyName>Puzzle.Zdania.ViewModels</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -46,17 +46,17 @@
     <Compile Include="PuzzleZdaniaViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Puzzle.Zdania.Model.csproj">
-      <Project>{566A43AF-50A5-4618-B280-75FDA75F2AE0}</Project>
-      <Name>Puzzle.Zdania.Model</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Puzzle.Zadania.IServices\Puzzle.Zdania.IServices.csproj">
-      <Project>{9a01a3e3-91e8-43d6-a46f-717ef4c99427}</Project>
+    <ProjectReference Include="..\Puzzle.Zdania.IServices\Puzzle.Zdania.IServices.csproj">
+      <Project>{4064e45e-c1c8-4ac9-8975-b5085be3e6e8}</Project>
       <Name>Puzzle.Zdania.IServices</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Puzzle.Zadania.MockServices\Puzzle.Zdania.MockServices.csproj">
-      <Project>{e73de3d1-e8e3-4956-8882-5c7176854f2f}</Project>
+    <ProjectReference Include="..\Puzzle.Zdania.MockServices\Puzzle.Zdania.MockServices.csproj">
+      <Project>{f791c911-5d43-4295-bceb-8c03f6fbd481}</Project>
       <Name>Puzzle.Zdania.MockServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Puzzle.Zdania.Model\Puzzle.Zdania.Model.csproj">
+      <Project>{373d6de1-9910-4bfc-a73d-cd97bee62b85}</Project>
+      <Name>Puzzle.Zdania.Model</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

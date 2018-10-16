@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Puzzle.Zdania.Model;
 
-namespace Puzzle.Zdania.ViewModel
+namespace Puzzle.Zdania.ViewModels
 {
     public class BaseViewModel : Base
     {

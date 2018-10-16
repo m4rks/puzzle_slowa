@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Puzzle.Zdania.View.Properties
+namespace Puzzle.Zdania.WPFClient.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace Puzzle.Zdania.View.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Puzzle.Zdania.View.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Puzzle.Zdania.WPFClient.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

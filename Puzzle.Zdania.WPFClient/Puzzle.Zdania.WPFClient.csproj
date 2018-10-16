@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{ABE924E0-1BD5-48F8-9EE2-7A68547BD307}</ProjectGuid>
+    <ProjectGuid>{BF3E6CF8-7601-4830-A9EA-45A5DACA460E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Puzzle.Zdania.View</RootNamespace>
-    <AssemblyName>Puzzle.Zdania.View</AssemblyName>
+    <RootNamespace>Puzzle.Zdania.WPFClient</RootNamespace>
+    <AssemblyName>Puzzle.Zdania.WPFClient</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -59,6 +59,13 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Views\AntwortfeldView.xaml.cs">
+      <DependentUpon>AntwortfeldView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PuzzleZdaniaView.xaml.cs">
+      <DependentUpon>PuzzleZdaniaView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -87,14 +94,35 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\Puzzle.Zdania.Model.csproj">
-      <Project>{566a43af-50a5-4618-b280-75fda75f2ae0}</Project>
+    <ProjectReference Include="..\Puzzle.Zdania.IServices\Puzzle.Zdania.IServices.csproj">
+      <Project>{4064e45e-c1c8-4ac9-8975-b5085be3e6e8}</Project>
+      <Name>Puzzle.Zdania.IServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Puzzle.Zdania.MockServices\Puzzle.Zdania.MockServices.csproj">
+      <Project>{f791c911-5d43-4295-bceb-8c03f6fbd481}</Project>
+      <Name>Puzzle.Zdania.MockServices</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Puzzle.Zdania.Model\Puzzle.Zdania.Model.csproj">
+      <Project>{373d6de1-9910-4bfc-a73d-cd97bee62b85}</Project>
       <Name>Puzzle.Zdania.Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Puzzle.Zdania.ViewModel\Puzzle.Zdania.ViewModel.csproj">
+    <ProjectReference Include="..\Puzzle.Zdania.ViewModels\Puzzle.Zdania.ViewModels.csproj">
       <Project>{62026e79-2db8-4fa2-b567-60c3ba38451d}</Project>
-      <Name>Puzzle.Zdania.ViewModel</Name>
+      <Name>Puzzle.Zdania.ViewModels</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Views\AntwortfeldView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PuzzleZdaniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

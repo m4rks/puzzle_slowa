@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Puzzle.Zdania.View.Properties
+namespace Puzzle.Zdania.WPFClient.Properties
 {
 
 

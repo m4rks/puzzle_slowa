@@ -2,12 +2,15 @@
 
 namespace Puzzle.Zdania.Model
 {
-    public class Satz : Base
+
+    public class Satz : Point
     {
         private int _idnum;
         private string _satzMitSemikolon;
         private string _belohnung;
         private string _bild;
+
+
 
         public int Idnum
         {
