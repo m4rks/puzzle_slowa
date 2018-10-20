@@ -21,15 +21,19 @@ namespace Puzzle.Zdania.ViewModels
         #endregion
 
         #region Private Methods
+
         private void Load()
         {
             Satz = satzeService.Get(1);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
+            
             Puzzles2 = new List<Model.Puzzle> { new Model.Puzzle { IdNum = 1, Order = 1, TextField = "ds", X = 0, Y = 0 } };
         }
+
         #endregion
 
         #region Property
+
         public Satz Satz { get; set; }
 
         private IList<Model.Puzzle> puzzles2;
