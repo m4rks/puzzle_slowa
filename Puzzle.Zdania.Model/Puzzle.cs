@@ -6,9 +6,26 @@ namespace Puzzle.Zdania.Model
 {
     public class Puzzle : Point
     {
-        public int IdNum;
-        public string TextField;
-        public int Order;
+        private int _idNum;
+        public int IdNum
+        {
+            get { return _idNum; }
+            set { _idNum = value; }
+        }
 
+        private string _textField;
+        public string TextField
+        {
+            get { return _textField; }
+            set { _textField = value; }
+        }
+
+        private int _order;
+
+        public int Order
+        {
+            get { return _order; }
+            set { _order = value; }
+        }
     }
 }

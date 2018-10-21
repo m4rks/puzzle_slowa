@@ -15,7 +15,7 @@ namespace Puzzle.Zdania.MockServices
         {
             satze = new List<Satz>
             {
-                new Satz {Idnum = 1, Belohnung = "asdf", Bild = "asdf", SatzMitSemikolon = "asdf;asdf"},
+                new Satz {Idnum = 1, Belohnung = "asdf", Bild = "asdf", SatzMitSemikolon = "asdf;zxcv;cvbn;zzzz"},
                 new Satz {Idnum = 2, Belohnung = "asdf", Bild = "asdf", SatzMitSemikolon = "asdf;asdf;asdf"},
 
             };

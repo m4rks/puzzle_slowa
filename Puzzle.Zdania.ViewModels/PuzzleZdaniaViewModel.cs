@@ -26,8 +26,6 @@ namespace Puzzle.Zdania.ViewModels
         {
             Satz = satzeService.Get(1);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
-            
-            Puzzles2 = new List<Model.Puzzle> { new Model.Puzzle { IdNum = 1, Order = 1, TextField = "ds", X = 0, Y = 0 } };
         }
 
         #endregion
@@ -53,9 +51,9 @@ namespace Puzzle.Zdania.ViewModels
             }
         }
 
-        public bool myVisibility
+        public bool MyVisibility
         {
-            get { return false; }
+            get { return true; }
         }
 
         private string _message;
