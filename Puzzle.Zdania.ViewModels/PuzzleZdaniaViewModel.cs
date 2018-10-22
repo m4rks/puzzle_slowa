@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,7 +15,7 @@ namespace Puzzle.Zdania.ViewModels
 {
     public class PuzzleZdaniaViewModel : BaseViewModel
     {
-        #region Members
+        #region Fields
         private TimerService _timer;
         private readonly ISatzeService satzeService;
         private readonly IPuzzleService puzzleService;
@@ -26,16 +27,38 @@ namespace Puzzle.Zdania.ViewModels
         {
             Satz = satzeService.Get(1);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
+            SourceUri = GenerateSourceUri(Satz.Bild);
         }
 
+        private string GenerateSourceUri(string nameOfImages)
+        {
+
+            String exePath = System.Reflection.Assembly.GetExecutingAssembly().GetModules()[0].FullyQualifiedName;
+            string dir = Path.GetDirectoryName(exePath) + "\\Images\\" + nameOfImages;
+            return dir;
+
+        }
         #endregion
 
         #region Property
+        private string _sourceUri;
+        
+        public string SourceUri
+        {
+            get { return _sourceUri; }
+            set { _sourceUri = value; OnPropertyChanged(); }
+        }
 
-        public Satz Satz { get; set; }
-
-        private IList<Model.Puzzle> puzzles2;
-        public List<Model.Puzzle> Puzzles2 { get; set; }
+        private Satz _satz;
+        public Satz Satz
+        {
+            get { return _satz; }
+            set
+            {
+                _satz = value;
+                OnPropertyChanged();
+            }
+        }
 
         private ICollection<Model.Puzzle> puzzles;
         public ICollection<Model.Puzzle> Puzzles
@@ -51,12 +74,8 @@ namespace Puzzle.Zdania.ViewModels
             }
         }
 
-        public bool MyVisibility
-        {
-            get { return true; }
-        }
-
         private string _message;
+
         public string Message
         {
             get
@@ -87,9 +106,16 @@ namespace Puzzle.Zdania.ViewModels
         void _timer_Tick(object sender, int tick)
         {
             Message = string.Format("Tick #{0}", tick);
+            if (tick % 12 == 0)
+            {
+                int numberOfCurrentlyTask = Satz.Idnum;
+                Satz = satzeService.Get(numberOfCurrentlyTask++);
+                Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
+                SourceUri = GenerateSourceUri(Satz.Bild);
+            }
         }
         #endregion
- 
+
         #region Constructor
 
         public PuzzleZdaniaViewModel() : this(new MockSatzeService(), new PuzzleService())
@@ -105,6 +131,13 @@ namespace Puzzle.Zdania.ViewModels
             Load();
         }
         #endregion
+
+        #region Commands
+
+        
+
+        #endregion
+
     }
 
 }

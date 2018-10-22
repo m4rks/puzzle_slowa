@@ -11,6 +11,40 @@
         WindowState="Maximized" AllowsTransparency="True" WindowStyle="None">
     <Window.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
+        <!--style-->
+        <Style x:Key="BigFontButtonStyle">
+            <Setter Property="Control.FontFamily" Value="Times New Roman"/>
+            <Setter Property="Control.FontSize" Value="50"/>
+            <Setter Property="Control.FontWeight" Value="Bold"/>
+        </Style>
+        <Style x:Key="EmphasizedBigFontButtonStyle"
+               BasedOn="{StaticResource BigFontButtonStyle}">
+            <Setter Property="Control.Foreground" Value="White"/>
+            <Setter Property="Control.Background" Value="#FF787878"/>
+
+            <Style.Triggers>
+                <Trigger Property="Control.IsMouseOver" Value="True">
+                    <Setter Property="Control.Background" Value="White"/>
+                    <Setter Property="Control.Foreground" Value="#FF303030"/>
+
+                </Trigger>
+                <EventTrigger RoutedEvent="Mouse.MouseEnter">
+                    <EventTrigger.Actions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <DoubleAnimation
+                                    Duration="0:0:2"
+                                    Storyboard.TargetProperty="FontSize"
+                                    To="75" />
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </EventTrigger.Actions>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+        <!--style-->
+
+
     </Window.Resources>
     <Window.Background>
         <SolidColorBrush Opacity="0.4" Color="White"></SolidColorBrush>
@@ -20,19 +54,21 @@
     </Window.DataContext>
     <Grid>
         <StackPanel>
-            <Label HorizontalAlignment="Center" FontSize="40" Content="{Binding Satz.Belohnung}" Height="70" VerticalAlignment="Top"/>
+            <Label Style="{StaticResource EmphasizedBigFontButtonStyle}" HorizontalAlignment="Center" FontSize="50" Content="{Binding Satz.Belohnung}" Height="90" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto"/>
 
-            <Image Width="300">
-                <Image.Source>
-                    <BitmapImage  UriSource="C:\Users\mmichalak\source\repos\_auto\puzzle_slowa\Puzzle.Zdania.WPFClient\Images\gabrys-architekt.jpg" />
-                </Image.Source>
-            </Image>
+            <Image Width="700" Source="{Binding SourceUri}" />
+            <!--<Image Width="700" Source="../Images/gabrys-architekt.jpg">-->
+                <!--<Image.Source>
+                    <BitmapImage  UriSource="\Images\gabrys-architekt.jpg" />
+                    --><!--<BitmapImage  UriSource="C:\Users\mmichalak\source\repos\_auto\puzzle_slowa\Puzzle.Zdania.WPFClient\Images\gabrys-architekt.jpg" />--><!--
+                </Image.Source>-->
             <Grid>
                 
 
                 <!--<TextBox Grid.Column="3" Grid.Row="0" Margin="3" Text="44" Visibility="{Binding c ,Converter={StaticResource BooleanToVisibility}}"/>-->
                 <ItemsControl ItemsSource="{Binding Puzzles}">
+                    <!-- ItemsPanelTemplate -->
                     <ItemsControl.ItemTemplate>
                         <DataTemplate>
                             <Grid>
@@ -48,12 +84,12 @@
                                     <ColumnDefinition Width="*" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                
-                                <Button Content="{Binding TextField}"  Grid.Row="{Binding X}" Grid.Column="{Binding Y}"   />
-                                
+
+                                <Button Margin="10"  Style="{StaticResource AnswerButtonStyle}"  Content="{Binding TextField}"  Grid.Row="{Binding X}" Grid.Column="{Binding Y}"   />
                             </Grid>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
+
                 </ItemsControl>
             </Grid>
             

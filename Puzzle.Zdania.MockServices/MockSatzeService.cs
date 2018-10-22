@@ -15,8 +15,10 @@ namespace Puzzle.Zdania.MockServices
         {
             satze = new List<Satz>
             {
-                new Satz {Idnum = 1, Belohnung = "asdf", Bild = "asdf", SatzMitSemikolon = "asdf;zxcv;cvbn;zzzz"},
-                new Satz {Idnum = 2, Belohnung = "asdf", Bild = "asdf", SatzMitSemikolon = "asdf;asdf;asdf"},
+                new Satz {Idnum = 1, Belohnung = "Co robi Gabryś?", Bild = "gabrys-architekt.jpg", SatzMitSemikolon = "Pokazuje swoj dom;Liczy na kalkulatorze;Pisze;Biega"},
+                new Satz {Idnum = 2, Belohnung = "Co robi mis?", Bild = "mis ksiezyc spi.jpg", SatzMitSemikolon = "śpi;śpiewa;pływa"},
+                new Satz {Idnum = 3, Belohnung = "Co robi mis?", Bild = "mis ksiezyc spi.jpg", SatzMitSemikolon = "śpi;śpiewa;pływa"},
+                new Satz {Idnum = 4, Belohnung = "Co robi mis?", Bild = "mis ksiezyc spi.jpg", SatzMitSemikolon = "śpi;śpiewa;pływa"},
 
             };
 

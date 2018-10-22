@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using Puzzle.Zdania.IServices;
@@ -22,7 +23,6 @@ namespace Puzzle.Zdania.MockServices
                new Model.Puzzle { IdNum = 4,Order = 4,TextField = "traurig4", X = 1, Y = 0},
             };
         }
-
         public ICollection<Model.Puzzle> Get(string Satze)
         {
             int i = 0;
@@ -48,6 +48,7 @@ namespace Puzzle.Zdania.MockServices
             return puzzle;
         }
         #region Private Methods
+
 
 
         private static IEnumerable<IEnumerable<T>> GetPermutations<T>(IEnumerable<T> items, int count)

@@ -5,7 +5,17 @@
              StartupUri="Views/PuzzleZdaniaView.xaml">
     <Application.Resources>
 
-        <JournalEntryListConverter x:Key="BooleanToVisibility" />
-    
-        </Application.Resources>
+
+        <ResourceDictionary>
+            <JournalEntryListConverter x:Key="BooleanToVisibility" />
+
+            <!--<local:ViewModelLocator x:Key="ViewModelLocator" />-->
+
+            <ResourceDictionary.MergedDictionaries>
+                <!--<ResourceDictionary Source="ViewModelView.xaml" />-->
+                <ResourceDictionary Source="Ressourcen/Styles.xaml" />
+                <!--<ResourceDictionary Source="Resources/DataTemplates.xaml" />-->
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 </Application>
