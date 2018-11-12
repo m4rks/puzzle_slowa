@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle.Zdania.WPFClient", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle.Zdania.ViewModels", "Puzzle.Zdania.ViewModels\Puzzle.Zdania.ViewModels.csproj", "{62026E79-2DB8-4FA2-B567-60C3BA38451D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle.Zdania.Common4", "Puzzle.Zdania.Common4\Puzzle.Zdania.Common4.csproj", "{6CB8FA34-D9AD-4BA9-A48F-22C5CD74E3F1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{62026E79-2DB8-4FA2-B567-60C3BA38451D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62026E79-2DB8-4FA2-B567-60C3BA38451D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62026E79-2DB8-4FA2-B567-60C3BA38451D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6CB8FA34-D9AD-4BA9-A48F-22C5CD74E3F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CB8FA34-D9AD-4BA9-A48F-22C5CD74E3F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CB8FA34-D9AD-4BA9-A48F-22C5CD74E3F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CB8FA34-D9AD-4BA9-A48F-22C5CD74E3F1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

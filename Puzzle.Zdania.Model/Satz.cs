@@ -9,7 +9,7 @@ namespace Puzzle.Zdania.Model
         private string _satzMitSemikolon;
         private string _belohnung;
         private string _bild;
-
+        private string _antwort;
 
 
         public int Idnum
@@ -34,7 +34,17 @@ namespace Puzzle.Zdania.Model
         public string Belohnung
         {
             get { return _belohnung; }
-            set { _belohnung = value; }
+            set
+            {
+                _belohnung = value;
+                //OnPropertyChanged();
+            }
+        }
+
+        public string Antwort
+        {
+            get { return _antwort; }
+            set { _antwort = value; }
         }
     }
 }

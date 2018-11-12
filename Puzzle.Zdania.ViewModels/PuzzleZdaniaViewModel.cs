@@ -1,18 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Input;
+using Puzzle.Zdania.Common4;
 using Puzzle.Zdania.IServices;
 using Puzzle.Zdania.MockServices;
 using Puzzle.Zdania.Model;
-using ServicesSample.Services;
 using TimerService = Puzzle.Zdania.MockServices.TimerService;
 
 
 namespace Puzzle.Zdania.ViewModels
 {
+
     public class PuzzleZdaniaViewModel : BaseViewModel
     {
         #region Fields
@@ -28,6 +29,7 @@ namespace Puzzle.Zdania.ViewModels
             Satz = satzeService.Get(1);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
             SourceUri = GenerateSourceUri(Satz.Bild);
+
         }
 
         private string GenerateSourceUri(string nameOfImages)
@@ -38,15 +40,26 @@ namespace Puzzle.Zdania.ViewModels
             return dir;
 
         }
+
+        void SetzeDieNachsteAufgabe(int numberOfNextTask)
+        {
+            Satz = satzeService.Get(numberOfNextTask);
+            Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
+            SourceUri = GenerateSourceUri(Satz.Bild);
+        }
         #endregion
 
-        #region Property
+        #region Public Property / Command
         private string _sourceUri;
-        
+
         public string SourceUri
         {
             get { return _sourceUri; }
-            set { _sourceUri = value; OnPropertyChanged(); }
+            set
+            {
+                _sourceUri = value;
+                OnPropertyChanged();
+            }
         }
 
         private Satz _satz;
@@ -75,6 +88,7 @@ namespace Puzzle.Zdania.ViewModels
         }
 
         private string _message;
+        private object _getProductCommand;
 
         public string Message
         {
@@ -93,6 +107,31 @@ namespace Puzzle.Zdania.ViewModels
             }
         }
 
+
+
+        private void GetAnswer(object parameter)
+        {
+            //Segment segment = parameter as Satz;
+            string antwort = (string)parameter;
+            if (antwort == Satz.Antwort)
+            {
+                int numberOfCurrentlyTask = Satz.Idnum + 1;
+                if (numberOfCurrentlyTask <= 2)
+                { SetzeDieNachsteAufgabe(numberOfCurrentlyTask); }
+                else
+                {
+                    Application.Current.Shutdown();   
+                    Trace.WriteLine("koniec");
+                }
+            }
+            else
+            {
+                Trace.WriteLine("ng");
+            }
+
+        }
+        
+
         #endregion
 
         #region InitializeServices
@@ -106,12 +145,9 @@ namespace Puzzle.Zdania.ViewModels
         void _timer_Tick(object sender, int tick)
         {
             Message = string.Format("Tick #{0}", tick);
-            if (tick % 12 == 0)
+            if (tick % 4 == 0 && tick > 2)
             {
-                int numberOfCurrentlyTask = Satz.Idnum;
-                Satz = satzeService.Get(numberOfCurrentlyTask++);
-                Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
-                SourceUri = GenerateSourceUri(Satz.Bild);
+                //SetzeDieNachsteAufgabe();
             }
         }
         #endregion
@@ -129,15 +165,75 @@ namespace Puzzle.Zdania.ViewModels
             this.satzeService = satzeService;
             this.puzzleService = puzzleService;
             Load();
+
+            ///////////////
+            this.FireCommand = new RelayCommand(new Action<object>(this.FireMissile));
+
         }
+
         #endregion
 
         #region Commands
+        public ICommand GetAnswerCommand
+        {
+            get
+            {
+                return new RelayCommand(p => GetAnswer(p));
+            }
+        }
 
-        
 
         #endregion
 
+        public ICommand FireCommand { get; set; }
+
+        private void FireMissile(Object obj)
+        {
+            Debug.WriteLine("fire");
+
+
+        }
+
+        private void CloseWindow(IClosable window)
+        {
+            if (window != null)
+            {
+                window.Close();
+            }
+        }
     }
 
+    public class RelayCommand2 : ICommand
+    {
+        private Action<object> execute;
+        private Func<object, bool> canExecute;
+
+        public event EventHandler CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
+        }
+
+        public RelayCommand2(Action<object> execute, Func<object, bool> canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return this.canExecute == null || this.canExecute(parameter);
+        }
+
+        public void Execute(object parameter)
+        {
+            this.execute(parameter);
+        }
+    }
+
+
+    public interface IClosable
+    {
+        void Close();
+    }
 }

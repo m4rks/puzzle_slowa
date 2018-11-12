@@ -60,6 +60,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="Converters\DoNothingConverter.cs" />
     <Compile Include="Views\AntwortfeldView.xaml.cs">
       <DependentUpon>AntwortfeldView.xaml</DependentUpon>
     </Compile>
@@ -94,6 +95,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Puzzle.Zdania.Common4\Puzzle.Zdania.Common4.csproj">
+      <Project>{6cb8fa34-d9ad-4ba9-a48f-22c5cd74e3f1}</Project>
+      <Name>Puzzle.Zdania.Common4</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Puzzle.Zdania.IServices\Puzzle.Zdania.IServices.csproj">
       <Project>{4064e45e-c1c8-4ac9-8975-b5085be3e6e8}</Project>
       <Name>Puzzle.Zdania.IServices</Name>

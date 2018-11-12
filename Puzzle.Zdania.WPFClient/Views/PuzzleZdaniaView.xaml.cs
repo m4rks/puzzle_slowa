@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Puzzle.Zdania.ViewModels;
 
 namespace Puzzle.Zdania.WPFClient.Views
 {
@@ -24,6 +25,7 @@ namespace Puzzle.Zdania.WPFClient.Views
             InitializeComponent();
             this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
         }
+        
 
         private void HandleEsc(object sender, KeyEventArgs e)
         {

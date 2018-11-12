@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{62026E79-2DB8-4FA2-B567-60C3BA38451D}</ProjectGuid>
+    <ProjectGuid>{6CB8FA34-D9AD-4BA9-A48F-22C5CD74E3F1}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Puzzle.Zdania.ViewModels</RootNamespace>
-    <AssemblyName>Puzzle.Zdania.ViewModels</AssemblyName>
+    <RootNamespace>Puzzle.Zdania.Common4</RootNamespace>
+    <AssemblyName>Puzzle.Zdania.Common4</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,30 +40,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseViewModel.cs" />
+    <Compile Include="RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="PuzzleZdaniaViewModel.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Puzzle.Zdania.Common4\Puzzle.Zdania.Common4.csproj">
-      <Project>{6cb8fa34-d9ad-4ba9-a48f-22c5cd74e3f1}</Project>
-      <Name>Puzzle.Zdania.Common4</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Puzzle.Zdania.IServices\Puzzle.Zdania.IServices.csproj">
-      <Project>{4064e45e-c1c8-4ac9-8975-b5085be3e6e8}</Project>
-      <Name>Puzzle.Zdania.IServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Puzzle.Zdania.MockServices\Puzzle.Zdania.MockServices.csproj">
-      <Project>{f791c911-5d43-4295-bceb-8c03f6fbd481}</Project>
-      <Name>Puzzle.Zdania.MockServices</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Puzzle.Zdania.Model\Puzzle.Zdania.Model.csproj">
-      <Project>{373d6de1-9910-4bfc-a73d-cd97bee62b85}</Project>
-      <Name>Puzzle.Zdania.Model</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
