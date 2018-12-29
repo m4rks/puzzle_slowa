@@ -4,6 +4,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media.TextFormatting;
+using MvvmDialogs;
 using Puzzle.Zdania.Common4;
 using Puzzle.Zdania.IServices;
 using Puzzle.Zdania.MockServices;
@@ -20,6 +22,7 @@ namespace Puzzle.Zdania.ViewModels
         private TimerService _timer;
         private readonly ISatzeService satzeService;
         private readonly IPuzzleService puzzleService;
+        private readonly IDialogService dialogService;
         #endregion
 
         #region Private Methods
@@ -116,12 +119,15 @@ namespace Puzzle.Zdania.ViewModels
             if (antwort == Satz.Antwort)
             {
                 int numberOfCurrentlyTask = Satz.Idnum + 1;
-                if (numberOfCurrentlyTask <= 2)
+                if (numberOfCurrentlyTask <= 32)
                 { SetzeDieNachsteAufgabe(numberOfCurrentlyTask); }
                 else
                 {
-                    Application.Current.Shutdown();   
-                    Trace.WriteLine("koniec");
+                    //Application.Current.Shutdown();   
+                    //Trace.WriteLine("koniec");
+
+                  
+                    dialogService.ShowMessageBox(this,"kupa");
                 }
             }
             else
@@ -154,16 +160,17 @@ namespace Puzzle.Zdania.ViewModels
 
         #region Constructor
 
-        public PuzzleZdaniaViewModel() : this(new MockSatzeService(), new PuzzleService())
+        public PuzzleZdaniaViewModel() : this(new MockSatzeService(), new PuzzleService(),new DialogService())
         {
         }
 
-        public PuzzleZdaniaViewModel(ISatzeService satzeService, IPuzzleService puzzleService)
+        public PuzzleZdaniaViewModel(ISatzeService satzeService, IPuzzleService puzzleService, IDialogService dialogService)
         {
             InitializeServices();
             _timer.RunServiceAsync(); //todo on command 
             this.satzeService = satzeService;
             this.puzzleService = puzzleService;
+            this.dialogService = dialogService;
             Load();
 
             ///////////////

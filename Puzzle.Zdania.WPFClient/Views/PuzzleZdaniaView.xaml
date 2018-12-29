@@ -8,7 +8,9 @@
         xmlns:model="clr-namespace:Puzzle.Zdania.Model;assembly=Puzzle.Zdania.Model"
         mc:Ignorable="d"
         Title="PuzzleZdaniaView" Height="450" Width="800"
-        WindowState="Maximized" AllowsTransparency="True" WindowStyle="None">
+        WindowState="Maximized" AllowsTransparency="True" WindowStyle="None"
+        xmlns:md="https://github.com/fantasticfiasco/mvvm-dialogs"
+        md:DialogServiceViews.IsRegistered="True">
     <Window.Resources>
         <converters:BooleanToVisibilityConverter x:Key="BooleanToVisibility" />
         <!--style-->

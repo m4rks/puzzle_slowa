@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.94.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Puzzle.Zdania.IServices\Puzzle.Zdania.IServices.csproj" />
     <ProjectReference Include="..\Puzzle.Zdania.Model\Puzzle.Zdania.Model.csproj" />
   </ItemGroup>
