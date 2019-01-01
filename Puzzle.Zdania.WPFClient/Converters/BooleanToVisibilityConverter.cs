@@ -6,9 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Data;
+using System.Windows.Media.Imaging;
 
 namespace Puzzle.Zdania.WPFClient.Converters
 {
+
+    public class ImageConverter : IValueConverter
+    {
+        public object Convert(
+            object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            return new BitmapImage(new Uri(value.ToString()));
+        }
+
+        public object ConvertBack(
+            object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotSupportedException();
+        }
+    }
+
     [ValueConversion(typeof(bool), typeof(Visibility))]
     public sealed class BooleanToVisibilityConverter : IValueConverter
     {

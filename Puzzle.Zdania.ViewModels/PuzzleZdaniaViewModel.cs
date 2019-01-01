@@ -4,7 +4,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media.TextFormatting;
 using MvvmDialogs;
 using Puzzle.Zdania.Common4;
 using Puzzle.Zdania.IServices;
@@ -31,7 +30,7 @@ namespace Puzzle.Zdania.ViewModels
         {
             Satz = satzeService.Get(1);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
-            SourceUri = GenerateSourceUri(Satz.Bild);
+            //       SourceUri = GenerateSourceUri(Satz.Bild);
 
         }
 
@@ -48,7 +47,7 @@ namespace Puzzle.Zdania.ViewModels
         {
             Satz = satzeService.Get(numberOfNextTask);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
-            SourceUri = GenerateSourceUri(Satz.Bild);
+            //SourceUri = GenerateSourceUri(Satz.Bild);
         }
         #endregion
 
@@ -119,15 +118,12 @@ namespace Puzzle.Zdania.ViewModels
             if (antwort == Satz.Antwort)
             {
                 int numberOfCurrentlyTask = Satz.Idnum + 1;
-                if (numberOfCurrentlyTask <= 32)
+                if (numberOfCurrentlyTask <= satzeService.Count())
                 { SetzeDieNachsteAufgabe(numberOfCurrentlyTask); }
                 else
                 {
-                    //Application.Current.Shutdown();   
-                    //Trace.WriteLine("koniec");
-
-                  
-                    dialogService.ShowMessageBox(this,"kupa");
+                    dialogService.ShowMessageBox(this, "KONIEC - powiedz SKOŃCZYŁEM!");
+                    Application.Current.Shutdown();
                 }
             }
             else
@@ -136,7 +132,7 @@ namespace Puzzle.Zdania.ViewModels
             }
 
         }
-        
+
 
         #endregion
 
@@ -160,7 +156,7 @@ namespace Puzzle.Zdania.ViewModels
 
         #region Constructor
 
-        public PuzzleZdaniaViewModel() : this(new MockSatzeService(), new PuzzleService(),new DialogService())
+        public PuzzleZdaniaViewModel() : this(new MockSatzeService(), new PuzzleService(), new DialogService())
         {
         }
 

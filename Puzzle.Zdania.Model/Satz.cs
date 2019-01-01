@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Drawing;
+using System.Net.Mime;
+using System.Windows.Media.Imaging;
 
 namespace Puzzle.Zdania.Model
 {
@@ -8,7 +11,7 @@ namespace Puzzle.Zdania.Model
         private int _idnum;
         private string _satzMitSemikolon;
         private string _belohnung;
-        private string _bild;
+        private BitmapImage _bild;
         private string _antwort;
 
 
@@ -18,7 +21,7 @@ namespace Puzzle.Zdania.Model
             set { _idnum = value; }
         }
 
-        public string Bild
+        public BitmapImage Bild
         {
             get { return _bild; }
             set { _bild = value; }
@@ -37,7 +40,6 @@ namespace Puzzle.Zdania.Model
             set
             {
                 _belohnung = value;
-                //OnPropertyChanged();
             }
         }
 

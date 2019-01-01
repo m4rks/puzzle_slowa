@@ -59,7 +59,7 @@
             <Label Style="{StaticResource EmphasizedBigFontButtonStyle}" HorizontalAlignment="Center" FontSize="50" Content="{Binding Satz.Belohnung}" Height="90" VerticalAlignment="Top"/>
             <TextBlock Text="{Binding Message}" HorizontalAlignment="Center" VerticalAlignment="Center" Width="Auto"/>
 
-            <Image Width="700" Source="{Binding SourceUri}" />
+            <Image Width="700" Height="300" Source ="{Binding Satz.Bild}" />
             <!--<Image Width="700" Source="../Images/gabrys-architekt.jpg">-->
                 <!--<Image.Source>
                     <BitmapImage  UriSource="\Images\gabrys-architekt.jpg" />

@@ -7,6 +7,7 @@ namespace Puzzle.Zdania.IServices
     {
         Satz Get(int id);
 
+        int Count();
 
     }
 }
