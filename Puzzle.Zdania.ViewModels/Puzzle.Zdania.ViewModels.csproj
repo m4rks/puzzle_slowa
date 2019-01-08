@@ -50,6 +50,7 @@
     <Compile Include="BaseViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuzzleZdaniaViewModel.cs" />
+    <Compile Include="WahleEinSpielViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Puzzle.Zdania.Common4\Puzzle.Zdania.Common4.csproj">

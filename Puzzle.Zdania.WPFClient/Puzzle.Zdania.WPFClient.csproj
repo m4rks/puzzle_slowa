@@ -94,6 +94,9 @@
     <Compile Include="Views\PuzzleZdaniaView.xaml.cs">
       <DependentUpon>PuzzleZdaniaView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\WahleEinSpielView.xaml.cs">
+      <DependentUpon>WahleEinSpielView.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -154,6 +157,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\PuzzleZdaniaView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\WahleEinSpielView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

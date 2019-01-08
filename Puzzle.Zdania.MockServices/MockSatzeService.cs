@@ -34,8 +34,11 @@ namespace Puzzle.Zdania.MockServices
                         var aaa = pic.Placement;
                         PicturesByCellAddress.Add(pic.TopLeftCell.Address.RowNumber, pic);
                     }
-                    catch { }
-                }//pic.TopLeftCellAddress.RowNumber
+                    catch (Exception ex)
+                    {
+                        System.Console.WriteLine(ex.ToString());
+                    }
+                }
 
                 Image imagen = null;
                 int i = 0;
