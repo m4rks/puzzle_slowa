@@ -12,7 +12,7 @@
             <!--<local:ViewModelLocator x:Key="ViewModelLocator" />-->
 
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="ViewModelView.xaml" />-->
+                <ResourceDictionary Source="Ressourcen/ControlTemplates.xaml" />
                 <ResourceDictionary Source="Ressourcen/Styles.xaml" />
                 <!--<ResourceDictionary Source="Resources/DataTemplates.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
