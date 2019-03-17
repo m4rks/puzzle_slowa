@@ -51,4 +51,25 @@ namespace Puzzle.Zdania.Common4
             execute?.Invoke(parameter);
         }
     }
+
+    public class RelayCommand<T> : ICommand
+    {
+        public event EventHandler CanExecuteChanged;
+
+        private readonly Action<T> execute;
+        private readonly Func<bool> canExecute;
+
+        public RelayCommand(Action<T> execute, Func<bool> canExecute = null)
+        {
+            this.execute = execute;
+            this.canExecute = canExecute;
+        }
+
+        public bool CanExecute(object parameter)
+        {
+            return canExecute == null || canExecute();
+        }
+
+        public void Execute(object parameter) => execute?.Invoke((T)parameter);
+    }
 }

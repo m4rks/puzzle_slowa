@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Autofac, Version=4.9.1.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.4.9.1\lib\net45\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Extras.CommonServiceLocator, Version=5.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.Extras.CommonServiceLocator.5.0.0\lib\net45\Autofac.Extras.CommonServiceLocator.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.94.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.94.2\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\CommonServiceLocator.2.0.1\lib\net45\CommonServiceLocator.dll</HintPath>
     </Reference>
     <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
       <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
@@ -89,14 +98,16 @@
     <Compile Include="Converters\BitmapToImageSourceConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DoNothingConverter.cs" />
-    <Compile Include="Views\AntwortfeldView.xaml.cs">
-      <DependentUpon>AntwortfeldView.xaml</DependentUpon>
+    <Compile Include="FrameNavigationService.cs" />
+    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="Views\ListOfTasksView.xaml.cs">
+      <DependentUpon>ListOfTasksView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PuzzleZdaniaView.xaml.cs">
       <DependentUpon>PuzzleZdaniaView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\WahleEinSpielView.xaml.cs">
-      <DependentUpon>WahleEinSpielView.xaml</DependentUpon>
+    <Compile Include="Views\ShellView.xaml.cs">
+      <DependentUpon>ShellView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -149,15 +160,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="Ressourcen\ControlTemplates.xaml">
+    <Page Include="Resources\ControlTemplates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Ressourcen\Styles.xaml">
+    <Page Include="Resources\Styles.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\AntwortfeldView.xaml">
+    <Page Include="Views\ListOfTasksView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -165,7 +176,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\WahleEinSpielView.xaml">
+    <Page Include="Views\ShellView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

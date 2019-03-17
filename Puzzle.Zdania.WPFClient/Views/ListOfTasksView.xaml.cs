@@ -10,18 +10,21 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Puzzle.Zdania.WPFClient.Views
 {
     /// <summary>
-    /// Interaction logic for WahleEinSpielView.xaml
+    /// Interaction logic for ListOfTasksView.xaml
     /// </summary>
-    public partial class WahleEinSpielView : Window
+    public partial class ListOfTasksView : Page
     {
-        public WahleEinSpielView()
+        public ListOfTasksView()
         {
             InitializeComponent();
         }
+
+        
     }
 }

@@ -36,18 +36,15 @@ namespace Puzzle.Zdania.ViewModels
 
         private string GenerateSourceUri(string nameOfImages)
         {
-
             String exePath = System.Reflection.Assembly.GetExecutingAssembly().GetModules()[0].FullyQualifiedName;
             string dir = Path.GetDirectoryName(exePath) + "\\Images\\" + nameOfImages;
             return dir;
-
         }
 
         void SetzeDieNachsteAufgabe(int numberOfNextTask)
         {
             Satz = satzeService.Get(numberOfNextTask);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
-            //SourceUri = GenerateSourceUri(Satz.Bild);
         }
         #endregion
 
@@ -90,7 +87,6 @@ namespace Puzzle.Zdania.ViewModels
         }
 
         private string _message;
-        private object _getProductCommand;
 
         public string Message
         {
@@ -169,9 +165,6 @@ namespace Puzzle.Zdania.ViewModels
             this.dialogService = dialogService;
             Load();
 
-            ///////////////
-            this.FireCommand = new RelayCommand(new Action<object>(this.FireMissile));
-
         }
 
         #endregion
@@ -181,7 +174,7 @@ namespace Puzzle.Zdania.ViewModels
         {
             get
             {
-                return new RelayCommand(p => GetAnswer(p));
+                return new RelayCommand(p=>GetAnswer(p));
             }
         }
 

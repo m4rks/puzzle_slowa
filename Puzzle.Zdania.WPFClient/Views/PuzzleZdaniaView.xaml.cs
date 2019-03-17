@@ -18,19 +18,15 @@ namespace Puzzle.Zdania.WPFClient.Views
     /// <summary>
     /// Interaction logic for PuzzleZdaniaView.xaml
     /// </summary>
-    public partial class PuzzleZdaniaView : Window
+    public partial class PuzzleZdaniaView : Page
     {
         public PuzzleZdaniaView()
         {
             InitializeComponent();
-            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        
         }
         
 
-        private void HandleEsc(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Escape)
-                Close();
-        }
+    
     }
 }

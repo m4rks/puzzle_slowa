@@ -10,19 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Puzzle.Zdania.WPFClient.Views
 {
     /// <summary>
-    /// Interaction logic for AntwortfeldView.xaml
+    /// Interaction logic for ShellView.xaml
     /// </summary>
-    public partial class AntwortfeldView : Page
+    public partial class ShellView : Window
     {
-        public AntwortfeldView()
+        public ShellView()
         {
             InitializeComponent();
+
+            //MainFrame.Navigate(new ListOfTasksView());
+
+            this.PreviewKeyDown += new KeyEventHandler(HandleEsc);
+        }
+
+        private void HandleEsc(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Escape)
+                Close();
         }
     }
 }
