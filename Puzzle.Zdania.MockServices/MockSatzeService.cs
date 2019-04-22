@@ -14,9 +14,12 @@ namespace Puzzle.Zdania.MockServices
         private IList<Satz> satze;
 
         public MockSatzeService()
+        {}
+
+        public Satz Get(int id)
         {
-            //  LoadDataInSourceCode();
             LoadDataFromXls(@"C:\Users\mmichalak\source\repos\_auto\puzzle_slowa\Puzzle.Zdania.WPFClient\bin\Debug\HelloWorld.xlsx");
+            return satze.SingleOrDefault(s => s.Idnum == id);
         }
 
         private void LoadDataFromXls(string filePath)
@@ -73,11 +76,6 @@ namespace Puzzle.Zdania.MockServices
                     }
                 }
             }
-        }
-
-        public Satz Get(int id)
-        {
-            return satze.SingleOrDefault(s => s.Idnum == id);
         }
 
         public int Count()

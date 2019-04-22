@@ -5,7 +5,7 @@ using CommonServiceLocator;
 using Puzzle.Zdania.IServices;
 using Puzzle.Zdania.MockServices;
 using Puzzle.Zdania.WPFClient;
-
+//https://en.wikipedia.org/wiki/Service_locator_pattern
 namespace Puzzle.Zdania.ViewModels
 {
     public class ViewModelLocator

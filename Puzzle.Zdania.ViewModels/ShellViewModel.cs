@@ -9,7 +9,7 @@ namespace Puzzle.Zdania.ViewModels
     {
         private readonly INavigationService navigationService;
 
-        public ICommand ShowPuzzleZdaniaCommand { get; set; }
+
 
         public RelayCommand<string> NavigateCommand { get; }
 
@@ -19,8 +19,6 @@ namespace Puzzle.Zdania.ViewModels
         public ShellViewModel(INavigationService navigationService)
         {
             this.navigationService = navigationService;
-
-            //ShowPuzzleZdaniaCommand = new RelayCommand(() => navigationService.Navigate("PuzzleZdaniaView"));
 
             NavigateCommand = new RelayCommand<string>(p => navigationService.Navigate(p));
             

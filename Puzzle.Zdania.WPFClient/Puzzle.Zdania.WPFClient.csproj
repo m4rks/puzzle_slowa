@@ -98,6 +98,7 @@
     <Compile Include="Converters\BitmapToImageSourceConverter.cs" />
     <Compile Include="Converters\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converters\DoNothingConverter.cs" />
+    <Compile Include="Converters\MultipleButtonParametersConverter.cs" />
     <Compile Include="FrameNavigationService.cs" />
     <Compile Include="ViewModelLocator.cs" />
     <Compile Include="Views\ListOfTasksView.xaml.cs">

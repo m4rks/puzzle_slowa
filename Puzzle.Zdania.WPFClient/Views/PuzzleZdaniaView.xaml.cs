@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Puzzle.Zdania.ViewModels;
+using System.Windows.Navigation;
 
 namespace Puzzle.Zdania.WPFClient.Views
 {
@@ -23,10 +24,7 @@ namespace Puzzle.Zdania.WPFClient.Views
         public PuzzleZdaniaView()
         {
             InitializeComponent();
-        
-        }
-        
 
-    
+        }
     }
 }

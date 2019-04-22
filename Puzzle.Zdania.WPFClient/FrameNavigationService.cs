@@ -1,9 +1,5 @@
 ﻿using Puzzle.Zdania.IServices;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -34,8 +30,8 @@ namespace Puzzle.Zdania.WPFClient
             Frame frame = GetFrame("MainFrame");
 
             Uri uri = new Uri($"Views/{viewname}.xaml", UriKind.Relative);
-
             frame.Navigate(uri, parameter);
+            Parameter = parameter;
 
         }
 

@@ -18,10 +18,7 @@ namespace Puzzle.Zdania.Common4
 
         private readonly Action<object> execute;
         private readonly Func<object, bool> canExecute;
-
-        // private readonly Predicate<object> canExecute2;
-
-
+                
         public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
             this.execute = execute;
@@ -32,22 +29,10 @@ namespace Puzzle.Zdania.Common4
         public bool CanExecute(object parameter)
         {
             return canExecute == null || canExecute.Invoke(parameter);
-
-            //if (canExecute!=null)
-            //{
-            //    return canExecute.Invoke(parameter);
-            //}
-            //else
-            //{
-            //    return true;
-            //}
         }
 
         public void Execute(object parameter)
         {
-            //if (execute!=null)
-            //    execute.Invoke(parameter);
-
             execute?.Invoke(parameter);
         }
     }

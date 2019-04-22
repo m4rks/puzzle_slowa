@@ -11,10 +11,8 @@ using Puzzle.Zdania.MockServices;
 using Puzzle.Zdania.Model;
 using TimerService = Puzzle.Zdania.MockServices.TimerService;
 
-
 namespace Puzzle.Zdania.ViewModels
 {
-
     public class PuzzleZdaniaViewModel : BaseViewModel
     {
         #region Fields
@@ -22,16 +20,38 @@ namespace Puzzle.Zdania.ViewModels
         private readonly ISatzeService satzeService;
         private readonly IPuzzleService puzzleService;
         private readonly IDialogService dialogService;
+        private INavigationService _navigationService;
+        private string numberOfTask;
+        #endregion
+
+        #region Constructor
+        //https://stackoverflow.com/questions/39535472/wpf-prism-passing-parameter-from-view-to-viewmodel
+     
+        public PuzzleZdaniaViewModel(INavigationService navigationService) : this(new MockSatzeService(), new PuzzleService(), new DialogService())
+        {
+            this._navigationService = navigationService;
+            numberOfTask = (string)this._navigationService.Parameter.ToString();
+            //_pathName = pathName;
+            Load();
+
+        }
+
+        public PuzzleZdaniaViewModel(ISatzeService satzeService, IPuzzleService puzzleService, IDialogService dialogService)
+        {
+            InitializeServices();
+            _timer.RunServiceAsync(); //todo on command 
+            this.satzeService = satzeService;
+            this.puzzleService = puzzleService;
+            this.dialogService = dialogService;          
+        }
+
         #endregion
 
         #region Private Methods
-
         private void Load()
         {
             Satz = satzeService.Get(1);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
-            //       SourceUri = GenerateSourceUri(Satz.Bild);
-
         }
 
         private string GenerateSourceUri(string nameOfImages)
@@ -150,25 +170,6 @@ namespace Puzzle.Zdania.ViewModels
         }
         #endregion
 
-        #region Constructor
-
-        public PuzzleZdaniaViewModel() : this(new MockSatzeService(), new PuzzleService(), new DialogService())
-        {
-        }
-
-        public PuzzleZdaniaViewModel(ISatzeService satzeService, IPuzzleService puzzleService, IDialogService dialogService)
-        {
-            InitializeServices();
-            _timer.RunServiceAsync(); //todo on command 
-            this.satzeService = satzeService;
-            this.puzzleService = puzzleService;
-            this.dialogService = dialogService;
-            Load();
-
-        }
-
-        #endregion
-
         #region Commands
         public ICommand GetAnswerCommand
         {
@@ -178,16 +179,11 @@ namespace Puzzle.Zdania.ViewModels
             }
         }
 
-
-        #endregion
-
         public ICommand FireCommand { get; set; }
 
         private void FireMissile(Object obj)
         {
             Debug.WriteLine("fire");
-
-
         }
 
         private void CloseWindow(IClosable window)
@@ -197,39 +193,12 @@ namespace Puzzle.Zdania.ViewModels
                 window.Close();
             }
         }
+
+        public interface IClosable
+        {
+            void Close();
+        }
+        #endregion
     }
 
-    public class RelayCommand2 : ICommand
-    {
-        private Action<object> execute;
-        private Func<object, bool> canExecute;
-
-        public event EventHandler CanExecuteChanged
-        {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
-        }
-
-        public RelayCommand2(Action<object> execute, Func<object, bool> canExecute = null)
-        {
-            this.execute = execute;
-            this.canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return this.canExecute == null || this.canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            this.execute(parameter);
-        }
-    }
-
-
-    public interface IClosable
-    {
-        void Close();
-    }
 }

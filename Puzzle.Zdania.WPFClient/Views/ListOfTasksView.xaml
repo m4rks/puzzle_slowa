@@ -4,22 +4,41 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Puzzle.Zdania.WPFClient.Views"
+      xmlns:c="clr-namespace:Puzzle.Zdania.WPFClient.Converters"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListOfTasksView"
       xmlns:viewModel="clr-namespace:Puzzle.Zdania.ViewModels;assembly=Puzzle.Zdania.ViewModels"
-        DataContext="{Binding Source={StaticResource Locator}, Path=ListOfTasksViewModel}">
-    <Grid>
-        <StackPanel>
-        <Button>asdf</Button>
-        <Button>asdf2</Button>
-        <Button>asdf3</Button>
+      DataContext="{Binding Source={StaticResource Locator}, Path=ListOfTasksViewModel}">
+    <Page.Resources>
+        <!--<c:MultipleButtonParametersConverter x:Key="MultipleButtonParametersConverter"/>-->
+    </Page.Resources>
+    <Grid Margin="20">
+
+        <StackPanel Margin="30">
+            <Button>asdf</Button>
+            <Button>asdf2</Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="zad1">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView Oppset zad1" />
+                </StackPanel>
+            </Button>
             <Button Command="{Binding NavigateCommand}" CommandParameter="PuzzleZdaniaView">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView" />
+                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView 1" />
                 </StackPanel>
-
             </Button>
+            <!--<Button Command="{Binding NavigateCommand}">
+                <Button.CommandParameter>
+                    <MultiBinding Converter="{StaticResource MultipleButtonParametersConverter }">
+                        <Binding ElementName="PuzzleZdaniaView"/>
+                        <Binding ElementName="Hello"/>
+                    </MultiBinding>
+                </Button.CommandParameter>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView 2" />
+                </StackPanel>
+            </Button>-->
 
         </StackPanel>
     </Grid>
