@@ -21,7 +21,7 @@ namespace Puzzle.Zdania.ViewModels
         private readonly IPuzzleService puzzleService;
         private readonly IDialogService dialogService;
         private INavigationService _navigationService;
-        private string numberOfTask;
+        private string NameOfTask;
         #endregion
 
         #region Constructor
@@ -30,9 +30,9 @@ namespace Puzzle.Zdania.ViewModels
         public PuzzleZdaniaViewModel(INavigationService navigationService) : this(new MockSatzeService(), new PuzzleService(), new DialogService())
         {
             this._navigationService = navigationService;
-            numberOfTask = (string)this._navigationService.Parameter.ToString();
+            NameOfTask = (string)this._navigationService.Parameter.ToString();
             //_pathName = pathName;
-            Load();
+            Load(NameOfTask);
 
         }
 
@@ -48,9 +48,9 @@ namespace Puzzle.Zdania.ViewModels
         #endregion
 
         #region Private Methods
-        private void Load()
+        private void Load(string NameOfTask)
         {
-            Satz = satzeService.Get(1);
+            Satz = satzeService.GetFile(NameOfTask);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
         }
 
@@ -63,7 +63,7 @@ namespace Puzzle.Zdania.ViewModels
 
         void SetzeDieNachsteAufgabe(int numberOfNextTask)
         {
-            Satz = satzeService.Get(numberOfNextTask);
+            Satz = satzeService.GetNextTask(numberOfNextTask);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
         }
         #endregion

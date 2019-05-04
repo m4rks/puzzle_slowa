@@ -16,30 +16,57 @@
     <Grid Margin="20">
 
         <StackPanel Margin="30">
-            <Button>asdf</Button>
-            <Button>asdf2</Button>
-            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="zad1">
+            
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="co sie stalo">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView Oppset zad1" />
+                    <TextBlock VerticalAlignment="Center" Text="co sie stalo" />
                 </StackPanel>
             </Button>
-            <Button Command="{Binding NavigateCommand}" CommandParameter="PuzzleZdaniaView">
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="HelloWorld">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView 1" />
+                    <TextBlock VerticalAlignment="Center" Text="HelloWorld" />
                 </StackPanel>
             </Button>
-            <!--<Button Command="{Binding NavigateCommand}">
-                <Button.CommandParameter>
-                    <MultiBinding Converter="{StaticResource MultipleButtonParametersConverter }">
-                        <Binding ElementName="PuzzleZdaniaView"/>
-                        <Binding ElementName="Hello"/>
-                    </MultiBinding>
-                </Button.CommandParameter>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="internet">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="PuzzleZadaniaView 2" />
+                    <TextBlock VerticalAlignment="Center" Text="internet" />
                 </StackPanel>
-            </Button>-->
-
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="bajki">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="bajki" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="internet2">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="internet2" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="selfie">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="selfie" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="ubrania">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="ubrania" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="malowanie">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="malowanie" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="gryzie">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="gryzie" />
+                </StackPanel>
+            </Button>
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="dinozaury">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock VerticalAlignment="Center" Text="dinozaury" />
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -5,7 +5,8 @@ namespace Puzzle.Zdania.IServices
 {
     public interface ISatzeService
     {
-        Satz Get(int id);
+        Satz GetFile(string NameOfTask);
+        Satz GetNextTask(int numberOfNextTask);
 
         int Count();
 

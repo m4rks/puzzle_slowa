@@ -16,12 +16,16 @@ namespace Puzzle.Zdania.MockServices
         public MockSatzeService()
         {}
 
-        public Satz Get(int id)
+        public Satz GetFile(string NameOfTask)
         {
-            LoadDataFromXls(@"C:\Users\mmichalak\source\repos\_auto\puzzle_slowa\Puzzle.Zdania.WPFClient\bin\Debug\HelloWorld.xlsx");
-            return satze.SingleOrDefault(s => s.Idnum == id);
+            LoadDataFromXls(@"C:\Users\mmichalak\source\repos\_auto\puzzle_slowa\Puzzle.Zdania.WPFClient\bin\Debug\" + NameOfTask + ".xlsx");
+            return satze.SingleOrDefault(s => s.Idnum == 1);
         }
 
+        public Satz GetNextTask(int numberOfTask)
+        {
+            return satze.SingleOrDefault(s => s.Idnum == numberOfTask);
+        }
         private void LoadDataFromXls(string filePath)
         {
             using (var excelWorkbook = new XLWorkbook(filePath))
