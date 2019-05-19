@@ -17,5 +17,17 @@ namespace Puzzle.Zdania.ViewModels
             
             NavigateCommand = new RelayCommand<string>(p => navigationService.Navigate(p));
         }
+
+        private ICommand openDialogCommand = null;
+        public ICommand OpenDialogCommand
+        {
+            get { return this.openDialogCommand; }
+            set { this.openDialogCommand = value; }
+        }
+
+        private void OnOpenDialog(object parameter)
+        {
+
+        }
     }
 }

@@ -13,7 +13,7 @@ namespace Puzzle.Zdania.Model
         private string _belohnung;
         private BitmapImage _bild;
         private string _antwort;
-
+        private int _qtyOfNGanswers;
 
         public int Idnum
         {
@@ -47,6 +47,12 @@ namespace Puzzle.Zdania.Model
         {
             get { return _antwort; }
             set { _antwort = value; }
+        }
+
+        public int QtyOfNGanswers
+        {
+            get { return _qtyOfNGanswers; }
+            set { _qtyOfNGanswers = value; }
         }
     }
 }

@@ -42,7 +42,9 @@ namespace Puzzle.Zdania.ViewModels
             _timer.RunServiceAsync(); //todo on command 
             this.satzeService = satzeService;
             this.puzzleService = puzzleService;
-            this.dialogService = dialogService;          
+            this.dialogService = dialogService;
+           // this.dialogService.ShowMessageBox(this, "KONIEC - powiedz SKOŃCZYŁEM!");
+            this.openDialogCommand = new RelayCommand(OnOpenDialog);  
         }
 
         #endregion
@@ -65,6 +67,11 @@ namespace Puzzle.Zdania.ViewModels
         {
             Satz = satzeService.GetNextTask(numberOfNextTask);
             Puzzles = puzzleService.Get(Satz.SatzMitSemikolon);
+        }
+
+        private void OnOpenDialog(object parameter)
+        {
+
         }
         #endregion
 
@@ -107,7 +114,6 @@ namespace Puzzle.Zdania.ViewModels
         }
 
         private string _message;
-
         public string Message
         {
             get
@@ -144,7 +150,8 @@ namespace Puzzle.Zdania.ViewModels
             }
             else
             {
-                Trace.WriteLine("ng");
+                Satz.QtyOfNGanswers++;
+                Trace.WriteLine("number of wrong answer in this session: " + Satz.QtyOfNGanswers.ToString());
             }
 
         }
@@ -171,6 +178,7 @@ namespace Puzzle.Zdania.ViewModels
         #endregion
 
         #region Commands
+
         public ICommand GetAnswerCommand
         {
             get
@@ -197,6 +205,13 @@ namespace Puzzle.Zdania.ViewModels
         public interface IClosable
         {
             void Close();
+        }
+
+        private ICommand openDialogCommand = null;
+        public ICommand OpenDialogCommand
+        {
+            get { return this.openDialogCommand; }
+            set { this.openDialogCommand = value; }
         }
         #endregion
     }

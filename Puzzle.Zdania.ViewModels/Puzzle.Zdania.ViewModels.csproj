@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseViewModel.cs" />
+    <Compile Include="DialogViewModelBase.cs" />
+    <Compile Include="DialogYesNoViewModel.cs" />
     <Compile Include="ListOfTasksViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PuzzleZdaniaViewModel.cs" />

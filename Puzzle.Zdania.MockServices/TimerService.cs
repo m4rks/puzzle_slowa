@@ -78,6 +78,7 @@ namespace Puzzle.Zdania.MockServices
         {
             InitializeWorkers();
         }
+        #endregion
 
         #region InitializeWorkers
         private void InitializeWorkers()
@@ -103,7 +104,7 @@ namespace Puzzle.Zdania.MockServices
         }
         #endregion
 
-        #endregion
+        
 
         #region Members
         private BackgroundWorker _worker;
