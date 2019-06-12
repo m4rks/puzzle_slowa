@@ -152,6 +152,8 @@ namespace Puzzle.Zdania.ViewModels
             {
                 Satz.QtyOfNGanswers++;
                 Trace.WriteLine("number of wrong answer in this session: " + Satz.QtyOfNGanswers.ToString());
+                //dialogService.ShowMessageBox(this, "KONIE!");
+
             }
 
         }
