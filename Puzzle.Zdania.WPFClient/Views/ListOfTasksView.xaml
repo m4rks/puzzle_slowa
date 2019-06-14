@@ -67,9 +67,10 @@
                     <TextBlock VerticalAlignment="Center" Text="dinozaury" />
                 </StackPanel>
             </Button>
-            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="dinozaury2">
+            
+            <Button Command="{Binding PuzzlePageCommand}" CommandParameter="dzwiek">
                 <StackPanel Orientation="Horizontal">
-                    <TextBlock VerticalAlignment="Center" Text="dinozaury2" />
+                    <TextBlock VerticalAlignment="Center" Text="dzwiek" />
                 </StackPanel>
             </Button>
         </StackPanel>

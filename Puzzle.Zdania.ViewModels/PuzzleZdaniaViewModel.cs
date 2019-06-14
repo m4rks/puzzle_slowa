@@ -135,7 +135,6 @@ namespace Puzzle.Zdania.ViewModels
 
         private void GetAnswer(object parameter)
         {
-            //Segment segment = parameter as Satz;
             string antwort = (string)parameter;
             if (antwort == Satz.Antwort)
             {
@@ -153,12 +152,8 @@ namespace Puzzle.Zdania.ViewModels
                 Satz.QtyOfNGanswers++;
                 Trace.WriteLine("number of wrong answer in this session: " + Satz.QtyOfNGanswers.ToString());
                 //dialogService.ShowMessageBox(this, "KONIE!");
-
             }
-
         }
-
-
         #endregion
 
         #region InitializeServices

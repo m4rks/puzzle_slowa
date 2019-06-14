@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Windows.Media.Imaging;
 using ClosedXML.Excel;
 using Puzzle.Zdania.IServices;
 using Puzzle.Zdania.Model;
@@ -58,15 +59,26 @@ namespace Puzzle.Zdania.MockServices
                     if (dataRow.RowNumber() >= 2 && dataRow.RowNumber() <= 100)
                     {
                         ClosedXML.Excel.Drawings.IXLPicture foto;
-                        foto = PicturesByCellAddress[dataRow.RowNumber()];
-                        Console.WriteLine(i.ToString());
-                        ms = foto.ImageStream;
-                        //System.Drawing.Bitmap dImg = new System.Drawing.Bitmap(ms);
-                        //dImg.Save(dImg, System.Drawing.Imaging.ImageFormat.Jpeg);
-                        System.Windows.Media.Imaging.BitmapImage bImg = new System.Windows.Media.Imaging.BitmapImage();
-                        bImg.BeginInit();
-                        bImg.StreamSource = new MemoryStream(ms.ToArray());
-                        bImg.EndInit();
+                        BitmapImage bImg = new BitmapImage();
+                        try
+                        {
+                            foto = PicturesByCellAddress[dataRow.RowNumber()];
+                            ms = foto.ImageStream;
+                            bImg.BeginInit();
+                            bImg.StreamSource = new MemoryStream(ms.ToArray());
+                            bImg.EndInit();
+                        }
+                        catch (Exception e)
+                        {
+                            //foto = PicturesByCellAddress[dataRow.RowNumber() - 1];
+
+                            // Create source.
+                 
+                            // BitmapImage.UriSource must be in a BeginInit/EndInit block.
+                            bImg.BeginInit();
+                            bImg.UriSource = new Uri(@"/Images/gabrys-architekt.jpg", UriKind.RelativeOrAbsolute);
+                            bImg.EndInit();
+                        }
 
                         Satz readSatz = new Satz()
                         {
