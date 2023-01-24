@@ -18,7 +18,7 @@ namespace Puzzle.Zdania.MockServices
 
         public Satz GetFile(string NameOfTask)
         {
-            LoadDataFromXls(@"C:\Users\mmichalak\source\repos\_auto\puzzle_slowa\Puzzle.Zdania.WPFClient\bin\Debug\" + NameOfTask + ".xlsx");
+            LoadDataFromXls(@"...\Puzzle.Zdania.WPFClient\bin\Debug\" + NameOfTask + ".xlsx");
             return satze.SingleOrDefault(s => s.Idnum == 1);
         }
 
